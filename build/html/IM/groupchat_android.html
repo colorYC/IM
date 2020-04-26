@@ -1,0 +1,2479 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>一对一会话集成 &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="群组管理" href="groupchaiadd.html" />
+    <link rel="prev" title="一对一会话集成" href="1to1chat_android.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">原理及流程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">会话集成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html">一对一聊天</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">群聊</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">前提条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appkey">获取 AppKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk">配置 SDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">下载 SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">导入 SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">引入 SDK</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">初始化 SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">账号管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">登出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">设置昵称</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">会话管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id19">相关内容介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id22">创建会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">删除会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">更新会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41">查询会话</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">消息管理</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id47">相关内容介绍</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48">发送/转发/回复消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id55">删除消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id60">更新消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id64">接收/查询消息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html">多对多补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../serveruid.html">ServerUid</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">集成开发</a> &raquo;</li>
+        
+      <li>一对一会话集成</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/IM/groupchat_android.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>一对一会话集成<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>前提条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Android SDK API 等级 16 或以上</p></li>
+<li><p>支持 Android 4.1 或以上版本的移动设备</p></li>
+<li><p>有效的菊风开发者账号（<a class="reference external" href="http://developer.juphoon.com/signup">免费注册</a> ）</p></li>
+</ul>
+</div>
+<div class="section" id="appkey">
+<h2>获取 AppKey<a class="headerlink" href="#appkey" title="永久链接至标题">¶</a></h2>
+<p>AppKey 是应用在 菊风云平台 中的唯一标识。需要在 SDK 初始化的时候使用，AppKey 获取请参考 //todo:ref:<cite>创建应用 &lt;创建应用&gt;</cite> 。</p>
+</div>
+<div class="section" id="sdk">
+<h2>配置 SDK<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id4">
+<h3>下载 SDK<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>点击 <a class="reference external" href="//todo">Android SDK</a> 进行下载。</p>
+</div>
+<div class="section" id="id5">
+<h3>导入 SDK<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>//todo 修改内容</p>
+<ol class="arabic simple">
+<li><p>下载 SDK，拷贝 libs 文件夹内的 armeabi-v7a、X86、mtc.jar 、JCSDK.jar 和 zmf.jar 到您工程目录中的 libs 目录下，并打开工程，如下图所示:</p></li>
+</ol>
+<img alt="../_images/android_sdklist.png" src="../_images/android_sdklist.png" />
+<img alt="../_images/quickstart_android1.png" src="../_images/quickstart_android1.png" />
+<ol class="arabic simple" start="2">
+<li><p>为能连接到我们的 so 库，在您工程 build.gradle 文件中确保增加以下配置，如图:</p></li>
+</ol>
+<img alt="../_images/set_sdk_android2.png" src="../_images/set_sdk_android2.png" />
+<p>3. 修改您工程中 Application 配置文件 AndroidManifest.xml，<strong>请确保已经加入以下特性和权限信息</strong>。具体信息可以参考 <span class="xref std std-ref">Android 权限说明</span> 。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.hardware.camera&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.hardware.camera.autofocus&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_WIFI_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.READ_PHONE_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.WAKE_LOCK&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.CAMERA&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.RECORD_AUDIO&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.MODIFY_AUDIO_SETTINGS&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.VIBRATE&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.BLUETOOTH&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.SYSTEM_ALERT_WINDOW&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>您在 AndroidManifest 中进行权限配置时，请确保您能够获得打开摄像头、音视频录制等相关权限。</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>配置完成后编译运行，如果没有报错，恭喜您，您已经成功配置 SDK，可以进行 SDK 初始化了。</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>SDK 不支持模拟器运行，请使用真机。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>引入 SDK<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>在文件头部引入导入（import）需要的包和类
+例如:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.juphoon.cloud.wrapper.JCCloudManager</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>初始化 SDK<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>开发者在使用 JC SDK 所有功能之前，必须先调用初始化方法初始化 SDK。 在 App 的整个生命周期中，开发者只需要将 SDK 初始化一次。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">appKey</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>context</p></td>
+<td><p>Context</p></td>
+<td><p>是</p></td>
+<td><p>应用上下文</p></td>
+</tr>
+<tr class="row-odd"><td><p>appKey</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>菊风云平台中的唯一标识</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>true/false</p></td>
+<td><p>Boolean</p></td>
+<td><p>判断是否初始化成功</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>账号管理<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>账号管理主要包括账号登录/登出和账号昵称设置。</p>
+<div class="section" id="id9">
+<h3>登录<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>登录涉及 JCClient 类及其回调 JCClientCallback，其主要作用是负责登录、登出管理及帐号信息存储。</p>
+<p>只有登录成功后才能进行平台上的各种业务。服务器分为鉴权模式和非鉴权模式</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>鉴权模式: 服务器会检查用户名和密码</p></li>
+<li><p>免鉴权模式: 只要用户保证用户标识唯一即可, 服务器不校验</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>目前只支持免鉴权模式，免鉴权模式下当账号不存在时会自动去创建该账号</p>
+</div>
+<p>在 App 整个生命周期，开发者只需要调用一次登录方法进行登录。之后无论是网络出现异常或者 App 有前后台的切换等，SDK 都会负责自动重连服务器。除非用户主动调用登出接口，或者因为帐号在其他设备登录导致该设备被登出。</p>
+<p>登录过程如下:</p>
+<img alt="../_images/loginflow.png" src="../_images/loginflow.png" />
+<div class="section" id="id10">
+<h4>登录参数设置（可选）<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>登录之前，可以通过 setConfig() 方法对登录参数进行个性化配置，例如开发者可以通过此函数自定义服务器地址（如不设置则按照默认值登录）。</p>
+<p>其中，服务器地址包括国际环境服务器地址和国内环境服务器地址：</p>
+<p><strong>国际环境</strong> 服务器地址默认为 <code class="docutils literal notranslate"><span class="pre">http:intl.router.justalkcloud.com:8080</span></code> 。</p>
+<p><strong>国内环境</strong> 服务器地址默认为 <code class="docutils literal notranslate"><span class="pre">http:cn.router.justalkcloud.com:8080</span></code> 。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">mClient</span><span class="p">.</span><span class="na">setConfig</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>&#64;ConfigKey String</p></td>
+<td><p>是</p></td>
+<td><p>参数关键字，具体可参见JCClient.ConfigKey//todo</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>参数值</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>true/false</p></td>
+<td><p>Boolean</p></td>
+<td><p>返回 true 表示设置成功，false 表示设置失败</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h4>发起登录<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">mClient</span><span class="p">.</span><span class="na">login</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>调用方法需要注意的有:</p>
+<ol class="arabic simple">
+<li><p>在菊风云平台开启免鉴权</p></li>
+<li><p>用户名大小写不敏感</p></li>
+<li><p>用户名满足下述正则表达式</p></li>
+<li><p>密码没有限制</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>用户名为英文、数字和’+’ ‘-‘ ‘_’ ‘.’，长度不要超过64字符，’-‘ ‘_’ ‘.’不能作为第一个字符。</p>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>username</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>用户名(满足正则即可)</p></td>
+</tr>
+<tr class="row-odd"><td><p>password</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>用户密码(无限制)</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>boolean</p></td>
+<td><p>Boolean</p></td>
+<td><p>ture表示用户登录成功，false表示用户登录失败</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h4>登录状态改变回调<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h4>
+<p>登录成功之后，首先会触发登录状态改变回调：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * 登陆状态变化通知</span>
+<span class="cm">  * @param state    当前状态值</span>
+<span class="cm">  * @param oldState 上一步状态值</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onClientStateChange</span><span class="p">(</span><span class="nd">@JCClient.ClientState</span> <span class="kt">int</span> <span class="n">state</span><span class="p">,</span> <span class="nd">@JCClient.ClientState</span> <span class="kt">int</span> <span class="n">oldState</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>state</p></td>
+<td><p>&#64;JCClient.ClientState String</p></td>
+<td><p>当前状态值，详细内容参阅JCClient.ClientState</p></td>
+</tr>
+<tr class="row-odd"><td><p>oldState</p></td>
+<td><p>&#64;JCClient.ClientState String</p></td>
+<td><p>上一步状态值，详细内容参阅JCClient.ClientState</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h4>登录结果回调<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>然后会触发登录结果回调上报登录结果：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * 登陆结果回调</span>
+<span class="cm">  * @param result true 表示登陆成功，false 表示登陆失败</span>
+<span class="cm">  * @param reason 当 result 为 false 时该值有效</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onLogin</span><span class="p">(</span><span class="kt">boolean</span> <span class="n">result</span><span class="p">,</span> <span class="nd">@JCClient.ClientReason</span> <span class="kt">int</span> <span class="n">reason</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>result</p></td>
+<td><p>boolean</p></td>
+<td><p>true 表示登陆成功，false 表示登陆失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>reason</p></td>
+<td><p>&#64;JCClient.ClientReason int</p></td>
+<td><p>上一步状态值，详细内容参阅JCClient.ClientReason</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>登出<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>登出是指断开与菊风服务器的连接，登出后不能进行平台上的各种业务操作。</p>
+<p>登出过程如下：</p>
+<img alt="../_images/logoutflow.png" src="../_images/logoutflow.png" />
+<div class="section" id="id15">
+<h4>发起登出<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>调用方法：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">mClient</span><span class="p">.</span><span class="na">logout</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>true/false</p></td>
+<td><p>Boolean</p></td>
+<td><p>ture表示用户登出成功，false表示用户登出失败</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id16">
+<h4>登出回调<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p>登出方法会触发登出回调上报登出结果:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * 登出回调</span>
+<span class="cm">  *</span>
+<span class="cm">  * @param reason 登出原因</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onLogout</span><span class="p">(</span><span class="nd">@JCClient.ClientReason</span> <span class="kt">int</span> <span class="n">reason</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>reason</p></td>
+<td><p>&#64;JCClient.ClientReason int</p></td>
+<td><p>登出原因，详细内容参阅JCClient.ClientReason</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>设置昵称<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>开发者可以通过 JCClient 类中的 displayName 属性设置昵称。同理可用于设置其他参数。</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">mClient</span><span class="p">.</span><span class="na">setDisplayName</span><span class="p">(</span><span class="n">displayName</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>displayName</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>昵称</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>会话管理<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id19">
+<h3>相关内容介绍<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<p><strong>1. 会话实体类</strong></p>
+<p>SDK 中用户与同一个对象的聊天信息集合，称为一个会话，用 JCConversationData 对象来表示。</p>
+<p>会话有单人会话，群组会话等类型。</p>
+<p>JCConversationData 对象包含会话id、会话类型、会话对端 UserId、会话名字等属性。</p>
+<p>详细内容参阅 JCConversationData.h 文件。//todo</p>
+<p><strong>2. 会话管理类</strong></p>
+<p>会话管理主要涉及 JCCloudDatabase 类中的方法，用于会话的增删改查。</p>
+<p>详细内容参阅 JCCloudDatabase.h文件//todo</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>在登录时已经调用了该方法，开发者无需主动调用。</p>
+</div>
+<div class="section" id="id20">
+<h4>打开数据库<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  打开数据库</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">open</span><span class="p">(</span><span class="n">Context</span> <span class="n">context</span><span class="p">,</span> <span class="n">String</span> <span class="n">userId</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id21">
+<h4>关闭数据库<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  打开数据库</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>3. 数据库异步操作</strong></p>
+<p>数据库操作要在同一线程中，可以通过调用 JCCloudManager 类中的异步调用方法实现数据库的异步操作。</p>
+<p>详细内容参阅 JCCloudManager.h 文件//todo 或者参阅异步方法</p>
+<p>调用方法</p>
+<p>异步调用</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">dispatchIm</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>延时异步调用</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">dispatchImDelay</span><span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>创建会话<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id23">
+<h4>发起会话<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h4>
+<p>发起一对一聊天，会根据传入的 serverUid 查询本地数据库有无此会话，没有则会自动创建。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  获得会话本地id，没有则创建</span>
+<span class="cm">  *  @param  type 会话类型，一对一和群聊</span>
+<span class="cm">  *  @param  serverUid 服务器会话 uid，一对一实际是对方的个人 uid，群组 id 要创建成功才能获得</span>
+<span class="cm">  *  @param  name    会话名字，只针对一对一会话有效</span>
+<span class="cm">  *  @param  lastActiveTime    最后活跃时间</span>
+<span class="cm">  *  @return 会话id，失败返回 -1</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getOrCreateConversation</span><span class="p">(</span>
+          <span class="n">type</span><span class="p">,</span> <span class="n">serverUid</span><span class="p">,</span>
+          <span class="n">name</span><span class="p">,</span> <span class="n">lastActiveTime</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>&#64;JCCloudConstants.ConversationType int</p></td>
+<td><p>是</p></td>
+<td><p>会话类型，一对一和群聊，此处为一对一，详细内容参阅JCCloudConstants.ConversationType</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话 uid，一对一实际是对方的个人 uid，群组 id 要创建成功才能获得</p></td>
+</tr>
+<tr class="row-even"><td><p>name</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>会话名字，只针对一对一会话有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>lastActiveTime</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>最后活跃时间</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地会话id，失败返回 -1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id24">
+<h4>相关回调<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h4>
+<p>会话增加后，会触发回函数：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  会话新增回调，在接口JCCloudManagerCallback中</span>
+<span class="cm">  *  @param conversationId 本地会话id</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onConversationAdd</span><span class="p">(</span><span class="kt">long</span> <span class="n">conversationId</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>删除会话<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<p>删除会话分为删除单一会话和删除全部会话</p>
+<div class="section" id="id26">
+<h4>删除单一会话<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h4>
+<p>调用该方法将删除单一会话</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  删除会话</span>
+<span class="cm">  *  @param  conversationId 本地会话id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">deleteConversation</span><span class="p">(</span><span class="n">conversationId</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id27">
+<h4>删除所有会话<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h4>
+<p>调用该方法将删除所有会话</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  删除所有会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">deleteAllConversations</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id28">
+<h4>相关回调<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h4>
+<p>会话增加后，会触发回调函数：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  会话删除回调，在接口JCCloudManagerCallback中</span>
+<span class="cm">  *  @param conversationId 本地本地会话id，-1表示所有会话</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onConversationDelete</span><span class="p">(</span><span class="kt">long</span> <span class="n">conversationId</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地本地会话id，-1表示所有会话</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id29">
+<h3>更新会话<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id30">
+<h4>更新会话信息<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h4>
+<p>调用该方法能更新会话的详细信息，如`是否置顶`，<a href="#id31"><span class="problematic" id="id32">`</span></a>未读消息数量`等。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  更新会话信息（单个）</span>
+<span class="cm">  *  @param  oldConversationData 更新前会话对象</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">updateConversation</span><span class="p">(</span><span class="n">JCConversationData</span> <span class="n">oldConversationData</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>oldConversationData</p></td>
+<td><p>JCConversationData</p></td>
+<td><p>是</p></td>
+<td><p>会话实体类</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id33">
+<h4>更新会话名字<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  更新会话名字</span>
+<span class="cm">  *  @param  serverUid 服务器会话id</span>
+<span class="cm">  *  @param  name    会话名字</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">updateConversationNameIfNeed</span><span class="p">(</span><span class="n">serverUid</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serverUid</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>name</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>会话名字</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id34">
+<h4>更新会话图标<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h4>
+<p>用于更新会话的图标</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  更新会话图标</span>
+<span class="cm">  *  @param  serverUid 服务器会话 uid</span>
+<span class="cm">  *  @param  icon    会话图标</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">updateConversationIconIfNeed</span><span class="p">(</span><span class="n">serverUid</span><span class="p">,</span> <span class="n">icon</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serverUid</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>icon</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>会话图标</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id35">
+<h4>保存草稿<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h4>
+<p>将保存对话框中的文本内容到本地会话数据库，在保存前会先删除之前保存的草稿内容。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  保存草稿</span>
+<span class="cm">  *  @param  conversationId 本地会话id</span>
+<span class="cm">  *  @param  content 文本内容</span>
+<span class="cm">  *  @param  contentType 类型</span>
+<span class="cm">  *  @param  filePath 文件路径</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">saveDraft</span><span class="p">(</span><span class="n">conversationId</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">contentType</span><span class="p">,</span> <span class="n">filePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>content</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>文本内容</p></td>
+</tr>
+<tr class="row-even"><td><p>contentType</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>内容类型，详细内容参阅</p></td>
+</tr>
+<tr class="row-odd"><td><p>content</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>文件路径</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id36">
+<h4>清除草稿<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h4>
+<p>将清除本都会话数据库中的草稿数据</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  清除草稿</span>
+<span class="cm">  *  @param  conversationId 本地会话id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">clearDraft</span><span class="p">(</span><span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id37">
+<h4>设置会话所有消息本地已读<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  设置会话所有消息本地已读</span>
+<span class="cm">  *  @param  conversationId 本地会话id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">markConversationRead</span><span class="p">(</span><span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id38">
+<h4>设置会话置顶<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * 设置会话置顶</span>
+<span class="cm">  * @param conversationId 本地会话id</span>
+<span class="cm">  * @param isPriority 是否置顶</span>
+<span class="cm">  * @param block 回调结果</span>
+<span class="cm">  */</span>
+<span class="n">CCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">setConversationPriority</span><span class="p">(</span><span class="n">conversationId</span><span class="p">,</span> <span class="n">isPriority</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>isPriority</p></td>
+<td><p>boolean</p></td>
+<td><p>是</p></td>
+<td><p>是否置顶，true表示置顶，false表示不置顶</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>CloudOperationBlock</p></td>
+<td><p>否</p></td>
+<td><p>回调结果</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id39">
+<h4>设置会话免打扰<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  设置会话免打扰</span>
+<span class="cm">  *  @param conversationId 本地会话id</span>
+<span class="cm">  *  @param dnd  是否免打扰</span>
+<span class="cm">  *  @param block 回掉结果</span>
+<span class="cm">  */</span>
+<span class="n">CCloudManager</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">setConversationDnd</span><span class="p">(</span><span class="n">conversationId</span><span class="p">,</span> <span class="n">dnd</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>dnd</p></td>
+<td><p>boolean</p></td>
+<td><p>是</p></td>
+<td><p>是否免打扰，true表示免打扰开启，false表示关闭</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>CloudOperationBlock</p></td>
+<td><p>否</p></td>
+<td><p>回调结果</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id40">
+<h4>相关回调<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h4>
+<p>会话增加后，会触发回调函数：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  会话更新回调，在接口JCCloudManagerCallback中</span>
+<span class="cm">  *  @param conversationId 本地本地会话id，-1表示所有会话</span>
+<span class="cm">  */</span>
+<span class="kt">void</span> <span class="nf">onConversationUpdate</span><span class="p">(</span><span class="kt">long</span> <span class="n">conversationId</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地本地会话id，-1表示所有会话</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id41">
+<h3>查询会话<a class="headerlink" href="#id41" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id42">
+<h4>查询单个会话信息<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h4>
+<p>查询单个会话有两种方式，分别为根据会话ID（conversationId）查询和根据服务器会话id（serverUid）查询 ，开发者可以根据需求选择调用。</p>
+<p><strong>1. 根据会话ID查询</strong></p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  查询单个会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">queryConversation</span><span class="p">(</span><span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationData</p></td>
+<td><p>JCConversationData</p></td>
+<td><p>返回具体的会话实体类</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 根据服务器会话id查询</strong></p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  查询单个会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">queryConversationByServerUid</span><span class="p">(</span><span class="n">serverUid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serverUid</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id43">
+<h4>查询所有会话信息<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h4>
+<p>开发者可以调用下面接口获取 SDK 在本地数据库生成的会话列表，置顶会话会排在最前，获取到的其余会话按照时间倒序排列。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  查询所有会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">queryConversations</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>List&lt;JCConversationData&gt;</p></td>
+<td><p>会话实体类（JCConversationData）的列表</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="idid">
+<h4>根据服务器会话ID查询本地会话ID<a class="headerlink" href="#idid" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  获得会话本地 id</span>
+<span class="cm">  *  @param  serverUid 服务器会话 uid，一对一实际是对方的个人 uid，群组 id 要创建成功才能获得</span>
+<span class="cm">  *  @return 会话id，没有返回 -1</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getConversation</span><span class="p">(</span><span class="n">serverUid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serverUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地会话id，失败返回 -1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id44">
+<h4>根据服务器消息ID查询本地会话ID<a class="headerlink" href="#id44" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  根据消息 id 获得本地会话 id</span>
+<span class="cm">  *  @param  messageId 消息本地 id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getConversationByMessageId</span><span class="p">(</span><span class="n">messageId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地消息Id</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>本地会话id，失败返回 -1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id45">
+<h4>获得所有的未读消息数<a class="headerlink" href="#id45" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  获得所有的未读消息数</span>
+<span class="cm">  *  @param  includeDndConversation 是否包含免打扰会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">getToltalUnreadMessageCount</span><span class="p">(</span><span class="n">includeDndConversation</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>includeDndConversation</p></td>
+<td><p>boolean</p></td>
+<td><p>是</p></td>
+<td><p>是否包含免打扰会话，true表示包含。false表示不包含</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>num</p></td>
+<td><p>int</p></td>
+<td><p>未读消息的数量</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="id46">
+<h2>消息管理<a class="headerlink" href="#id46" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id47">
+<h3>相关内容介绍<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h3>
+<p>SDK 中用于表示消息的对象为 JCConversationMessageData。它是 IM 即时通讯中最关键最重要的类，是传递信息的基本模型。</p>
+<p>JCConversationMessageData 对象包含消息id、会话id、发送消息的userId等属性，详见 JCCloudDatabase.h 文件。</p>
+<p>支持的消息类型：文字、文件、图片、表情、位置、语音消息、小视频</p>
+</div>
+<div class="section" id="id48">
+<h3>发送/转发/回复消息<a class="headerlink" href="#id48" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id49">
+<h4>发送文本消息<a class="headerlink" href="#id49" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  发送文本消息</span>
+<span class="cm">  *  @param  type    消息所属会话类型</span>
+<span class="cm">  *  @param  serverUid    会话服务器 id，一对一必须先获得对方 userId 的 serverUid，群聊必须先获得群的 serverUid</span>
+<span class="cm">  *  @param  contentType    消息类型</span>
+<span class="cm">  *  @param  content    消息内容</span>
+<span class="cm">  *  @param  extraParams    额外信息</span>
+<span class="cm">  *  @param atAll       是否@群体成员，针对群消息</span>
+<span class="cm">  *  @param atServerUidList   @成员的serverUid列表 针对群消息</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">sendText</span><span class="p">(</span>
+          <span class="n">type</span><span class="p">,</span> <span class="n">serverUid</span><span class="p">,</span> <span class="n">contentType</span><span class="p">,</span>
+          <span class="n">content</span><span class="p">,</span> <span class="n">extraParams</span><span class="p">,</span> <span class="n">atAll</span><span class="p">,</span> <span class="n">atServerUidList</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>&#64;JCMessageChannel.Type int</p></td>
+<td><p>是</p></td>
+<td><p>消息所属会话类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUid</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>会话服务器 id，一对一必须先获得对方 userId 的 serverUid</p></td>
+</tr>
+<tr class="row-even"><td><p>contentType</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>消息类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>content</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>消息内容</p></td>
+</tr>
+<tr class="row-even"><td><p>extraParams</p></td>
+<td><p>Map&lt;String, Object&gt;</p></td>
+<td><p>否</p></td>
+<td><p>额外信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>atAll</p></td>
+<td><p>boolean</p></td>
+<td><p>是</p></td>
+<td><p>是否&#64;全体成员，针对群消息，true表示&#64;全体，false表示不&#64;全体</p></td>
+</tr>
+<tr class="row-even"><td><p>atServerUidList</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>&#64;成员的serverUid列表 针对群消息</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id50">
+<h4>发送文件<a class="headerlink" href="#id50" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  发送文件消息</span>
+<span class="cm">  *  @param  type    消息所属会话类型</span>
+<span class="cm">  *  @param  serverUid    会话服务器 id，一对一必须先获得对方 userId 的 serverUid，群聊必须先获得群的 serverUid</span>
+<span class="cm">  *  @param  contentType    消息类型</span>
+<span class="cm">  *  @param  filePath    文件本地路径</span>
+<span class="cm">  *  @param  thumbPath    缩略图本地路径</span>
+<span class="cm">  *  @param  size    文件大小</span>
+<span class="cm">  *  @param  duration    时长</span>
+<span class="cm">  *  @param  extraParams    额外信息</span>
+<span class="cm">  *  @param  expiredSeconds 过期秒数，-1表示永久</span>
+<span class="cm">  *  @param  atAll       是否@群体成员，针对群消息</span>
+<span class="cm">  *  @param  atServerUidList   @成员的serverUid列表 针对群消息</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">sendFile</span><span class="p">(</span>
+              <span class="n">type</span><span class="p">,</span> <span class="n">serverUid</span><span class="p">,</span> <span class="n">contentType</span><span class="p">,</span>
+              <span class="n">filePath</span><span class="p">,</span> <span class="n">thumbPath</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span>
+              <span class="n">extraParams</span><span class="p">,</span> <span class="n">expiredSeconds</span><span class="p">,</span> <span class="n">atAll</span><span class="p">,</span> <span class="n">atServerUidList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>&#64;JCMessageChannel.Type int</p></td>
+<td><p>是</p></td>
+<td><p>消息所属会话类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUid</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>会话服务器 id，一对一必须先获得对方 userId 的 serverUid</p></td>
+</tr>
+<tr class="row-even"><td><p>contentType</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>消息类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>filePath</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>文件本地路径</p></td>
+</tr>
+<tr class="row-even"><td><p>thumbPath</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>缩略图本地路径</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>int</p></td>
+<td><p>是</p></td>
+<td><p>文件大小</p></td>
+</tr>
+<tr class="row-even"><td><p>duration</p></td>
+<td><p>int</p></td>
+<td><p>是</p></td>
+<td><p>时长</p></td>
+</tr>
+<tr class="row-odd"><td><p>extraParams</p></td>
+<td><p>Map&lt;String, Object&gt;</p></td>
+<td><p>否</p></td>
+<td><p>额外信息</p></td>
+</tr>
+<tr class="row-even"><td><p>expiredSeconds</p></td>
+<td><p>Map&lt;String, Object&gt;</p></td>
+<td><p>否</p></td>
+<td><p>过期秒数，-1表示永久</p></td>
+</tr>
+<tr class="row-odd"><td><p>atAll</p></td>
+<td><p>boolean</p></td>
+<td><p>是</p></td>
+<td><p>是否&#64;全体成员，针对群消息，true表示&#64;全体，false表示不&#64;全体</p></td>
+</tr>
+<tr class="row-even"><td><p>atServerUidList</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>&#64;成员的serverUid列表 针对群消息</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id51">
+<h4>转发消息<a class="headerlink" href="#id51" title="永久链接至标题">¶</a></h4>
+<p>转发消息，只针对成功收发的消息</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * @param   messageIdList   数据库消息 id 列表</span>
+<span class="cm">  * @param   serverUidList 会话 serverUid 列表</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">forwordMessage</span><span class="p">(</span><span class="n">messageIdList</span><span class="p">,</span> <span class="n">serverUidList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageIdList</p></td>
+<td><p>List&lt;Long&gt;</p></td>
+<td><p>是</p></td>
+<td><p>消息类型，详细内容参阅JCMessageChannel.Type</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUidList</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id52">
+<h4>合并转发消息<a class="headerlink" href="#id52" title="永久链接至标题">¶</a></h4>
+<p>合并转发消息，有文件url和文本消息都可以转发</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  @param  messageIds   数据库消息 id 列表</span>
+<span class="cm">  *  @param  serverUids 会话 serverUid 列表</span>
+<span class="cm">  *  @param  title 标题</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">mergeForwordMessage</span><span class="p">(</span><span class="n">messageIds</span><span class="p">,</span> <span class="n">serverUids</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageIdList</p></td>
+<td><p>List&lt;Long&gt;</p></td>
+<td><p>是</p></td>
+<td><p>数据库消息 id 列表</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUidList</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>是</p></td>
+<td><p>会话 serverUid 列表</p></td>
+</tr>
+<tr class="row-even"><td><p>title</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>标题</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id53">
+<h4>回复消息<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h4>
+<p>回复消息，必须有服务器消息id</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *</span>
+<span class="cm">  *  @param  messageId   本地数据库消息id</span>
+<span class="cm">  *  @param  content 回复内容</span>
+<span class="cm">  *  @param  block  回掉结果函数, obj原因说明</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">replyMessage</span><span class="p">(</span><span class="n">messageId</span><span class="p">,</span> <span class="n">content</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageIdList</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地数据库消息id</p></td>
+</tr>
+<tr class="row-odd"><td><p>content</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>回复内容</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>MessageOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>回掉结果函数, obj原因说明</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id54">
+<h4>重发消息<a class="headerlink" href="#id54" title="永久链接至标题">¶</a></h4>
+<p>重发消息，只针对发送失败的消息。</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  * 重发消息，只针对发送失败消息</span>
+<span class="cm">  * @param   messageId   数据库消息 id</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">resendMessage</span><span class="p">(</span><span class="n">messageId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>数据库消息 id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id55">
+<h3>删除消息<a class="headerlink" href="#id55" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id56">
+<h4>撤回消息<a class="headerlink" href="#id56" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  撤回消息</span>
+<span class="cm">  *</span>
+<span class="cm">  *  @param type 消息类型</span>
+<span class="cm">  *  @param serverUid 服务器会话id</span>
+<span class="cm">  *  @param dbMessageId 本地数据库id</span>
+<span class="cm">  *  @param block 结果函数</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">drawBackMessages</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">serverUid</span><span class="p">,</span> <span class="n">dbMessageId</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>&#64;JCMessageChannel.Type int</p></td>
+<td><p>是</p></td>
+<td><p>消息类型，详细内容参阅JCMessageChannel.Type</p></td>
+</tr>
+<tr class="row-odd"><td><p>serverUid</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+<tr class="row-even"><td><p>dbMessageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地数据库id</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>MessageOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>本地数据库id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id57">
+<h4>删除单条消息<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  @brief  删除消息</span>
+<span class="cm">  *  @param  messageId 本地消息id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">deleteMessage</span><span class="p">(</span><span class="n">messageId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>数据库消息 id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id58">
+<h4>删除多条消息<a class="headerlink" href="#id58" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  @brief  删除消息</span>
+<span class="cm">  *  @param  messageIdList 本地消息id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">deleteMessages</span><span class="p">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span> <span class="n">messageIdList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageIdList</p></td>
+<td><p>List&lt;Long&gt;</p></td>
+<td><p>是</p></td>
+<td><p>本地消息id列表</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id59">
+<h4>删除会话所有消息<a class="headerlink" href="#id59" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  删除会话所有消息</span>
+<span class="cm">  *  @param  conversationId 会话数据库id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">deleteMessagesByConversationId</span><span class="p">(</span><span class="kt">long</span> <span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>会话数据库id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id60">
+<h3>更新消息<a class="headerlink" href="#id60" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id61">
+<h4>更新消息状态<a class="headerlink" href="#id61" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  @brief  更新消息状态</span>
+<span class="cm">  *  @param  messageId 本地消息id</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">updateMessageState</span><span class="p">(</span><span class="n">messageId</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地消息id</p></td>
+</tr>
+<tr class="row-odd"><td><p>state</p></td>
+<td><p>&#64;JCMessageChannel.ItemState int</p></td>
+<td><p>是</p></td>
+<td><p>消息状态，详细内容参阅JCMessageChannel.ItemState</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id62">
+<h4>更新消息文件路径<a class="headerlink" href="#id62" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  更新文件路径</span>
+<span class="cm">  *  @param  messageId</span>
+<span class="cm">  *  @param  filePath 文件路径</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">updateMessageFilePath</span><span class="p">(</span><span class="n">messageId</span><span class="p">,</span> <span class="n">filePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地消息id</p></td>
+</tr>
+<tr class="row-odd"><td><p>filePath</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>文件路径</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id63">
+<h4>标为已读<a class="headerlink" href="#id63" title="永久链接至标题">¶</a></h4>
+<p>将该会话所有消息置为已读，并按照内部逻辑设置服务器已读</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  @param  conversationId 数据库会话 id</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">markRead</span><span class="p">(</span><span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地消息id</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id64">
+<h3>接收/查询消息<a class="headerlink" href="#id64" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id65">
+<h4>接收消息<a class="headerlink" href="#id65" title="永久链接至标题">¶</a></h4>
+<p>获取消息(数据库没有则从服务器拉取，拉取过被删的消息不会再拉取),该接口表示从 dbMessageId 开始往更早的取，总共取 count 条消息</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  获取消息(数据库没有则从服务器拉取，拉取过被删的消息不会再拉取),该接口表示从 dbMessageId 开始往更早的取，总共取 count 条消息</span>
+<span class="cm">  *  @param serverUid 服务器会话id</span>
+<span class="cm">  *  @param dbMessageId 起始本地数据库消息id，-1从最新开始拉取</span>
+<span class="cm">  *  @param count 消息条数不包括(dbMessageId)</span>
+<span class="cm">  *  @param block 结果函数，obj 返回数据列表</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">fetchMessages</span><span class="p">(</span><span class="n">serverUid</span><span class="p">,</span> <span class="n">dbMessageId</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>serverUid</p></td>
+<td><p>&#64;NonNull Stirng</p></td>
+<td><p>是</p></td>
+<td><p>服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>dbMessageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>起始本地数据库消息id，-1从最新开始拉取</p></td>
+</tr>
+<tr class="row-even"><td><p>count</p></td>
+<td><p>int</p></td>
+<td><p>是</p></td>
+<td><p>消息条数不包括(dbMessageId)</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>MessageOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>回调结果， obj 返回数据列表</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id66">
+<h4>下载文件<a class="headerlink" href="#id66" title="永久链接至标题">¶</a></h4>
+<p><strong>1. 普通下载方法</strong></p>
+<p>在会话中下载收到的文件，根据fileUrl从服务器上下载</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  下载文件</span>
+<span class="cm">  *  @param  messageId   数据库消息 id</span>
+<span class="cm">  *  @param  fileUrl    文件 url</span>
+<span class="cm">  *  @param  savePath 保存路径</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">downloadFile</span><span class="p">(</span><span class="kt">long</span> <span class="n">messageId</span><span class="p">,</span> <span class="n">String</span> <span class="n">fileUrl</span><span class="p">,</span> <span class="n">String</span> <span class="n">savePath</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>messageId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>数据库消息 id</p></td>
+</tr>
+<tr class="row-odd"><td><p>fileUrl</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>文件 url</p></td>
+</tr>
+<tr class="row-even"><td><p>savePath</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>本地保存路径</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>2. 通过block上报状态的下载方法</strong></p>
+<p>下载文件，通过block上报状态。根据block的内容来进行处理</p>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  下载文件，通过block上报状态</span>
+<span class="cm">  *  @param  fileUrl    文件 url</span>
+<span class="cm">  *  @param  savePath 保存路径</span>
+<span class="cm">  *  @param  block 结果函数，obj 为 JCStorageItem 对象，JCStorageItem 不为空根据 JCStorageItem 中状态来处理</span>
+<span class="cm">  */</span>
+<span class="n">JCMessageWrapper</span><span class="p">.</span><span class="na">downloadFileWithBlock</span><span class="p">(</span><span class="n">fileUrl</span><span class="p">,</span> <span class="n">savePath</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fileUrl</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>文件 url</p></td>
+</tr>
+<tr class="row-odd"><td><p>savePath</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>本地保存路径</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>MessageOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数，obj 为 JCStorageItem 对象，JCStorageItem 不为空根据 JCStorageItem 中状态来处理</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id67">
+<h4>搜索消息<a class="headerlink" href="#id67" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  搜索本地文本消息</span>
+<span class="cm">  *  @param  key 搜索关键字</span>
+<span class="cm">  *  @param  conversationId 会话id，-1表示所有会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">searchMessage</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">contentTypes</span><span class="p">,</span> <span class="n">conversationId</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>搜索关键字</p></td>
+</tr>
+<tr class="row-odd"><td><p>contentTypes</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>是</p></td>
+<td><p>消息类型</p></td>
+</tr>
+<tr class="row-even"><td><p>conversationId</p></td>
+<td><p>long</p></td>
+<td><p>是</p></td>
+<td><p>本地会话id，-1表示所有会话</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>List&lt;JCConversationMessageData&gt;</p></td>
+<td><p>返回会话消息数据，消息内容参阅JCConversationMessageData</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id68">
+<h4>搜索包含关键词的会话信息<a class="headerlink" href="#id68" title="永久链接至标题">¶</a></h4>
+<p>调用方法</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">  *  根据消息类型搜索本地消息，一般用于搜索文件消息</span>
+<span class="cm">  *  @param  contentTypes 消息类型</span>
+<span class="cm">  *  @param  conversationId 会话id，-1表示所有会话</span>
+<span class="cm">  */</span>
+<span class="n">JCCloudDatabase</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">searchMessageConversationInfo</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">contentTypes</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>key</p></td>
+<td><p>String</p></td>
+<td><p>是</p></td>
+<td><p>搜索关键字</p></td>
+</tr>
+<tr class="row-odd"><td><p>contentTypes</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>是</p></td>
+<td><p>消息类型</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>list</p></td>
+<td><p>List&lt;JCMessageSearchData&gt;</p></td>
+<td><p>返回会话消息数据，消息内容参阅JCMessageSearchData</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="groupchaiadd.html" class="btn btn-neutral float-right" title="群组管理" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="1to1chat_android.html" class="btn btn-neutral float-left" title="一对一会话集成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ios &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">原理及流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maincontent.html">集成开发</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ios</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/prework.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ios">
+<h1>ios<a class="headerlink" href="#ios" title="永久链接至标题">¶</a></h1>
+<p>** 一对一语音通话**</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+<div class="section" id="demo">
+<h2>2. Demo 源码下载<a class="headerlink" href="#demo" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id1">
+<h2>3. 编译运行<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id2">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/duoios.png" src="images/duoios.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="appkey">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#appkey" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey1.png" src="images/duokey1.png" />
+</div>
+<div class="section" id="id3">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id5">
+<h2>3. 编译运行<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id6">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/duoandroid.png" src="images/duoandroid.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="id7">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey2.png" src="images/duokey2.png" />
+</div>
+<div class="section" id="id8">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+<hr class="docutils" />
+<p>一对一视频通话</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id10">
+<h2>3. 编译运行<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id11">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/duoios.png" src="images/duoios.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="id12">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey1.png" src="images/duokey1.png" />
+</div>
+<div class="section" id="id13">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id15">
+<h2>3. 编译运行<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id16">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/duoandroid.png" src="images/duoandroid.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="id17">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey2.png" src="images/duokey2.png" />
+</div>
+<div class="section" id="id18">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+<hr class="docutils" />
+<p>多方语音通话</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id19">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id20">
+<h2>3. 编译运行<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id21">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/roomios.png" src="images/roomios.png" />
+</div>
+<div class="section" id="id22">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<img alt="images/roomkey1.png" src="images/roomkey1.png" />
+</div>
+<div class="section" id="id23">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id24">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id25">
+<h2>3. 编译运行<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id26">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/roomandroid.png" src="images/roomandroid.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="id27">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey2.png" src="images/duokey2.png" />
+</div>
+<div class="section" id="id28">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+<hr class="docutils" />
+<p>多方视频通话</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id30">
+<h2>3. 编译运行<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id31">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/roomios.png" src="images/roomios.png" />
+</div>
+<div class="section" id="id32">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h3>
+<img alt="images/roomkey1.png" src="images/roomkey1.png" />
+</div>
+<div class="section" id="id33">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id34">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id35">
+<h2>3. 编译运行<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id36">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/roomandroid.png" src="images/roomandroid.png" />
+<p>JuphoonCommon 为工程所依赖的独立模块，提供 http 账号管理功能。</p>
+</div>
+<div class="section" id="id37">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id37" title="永久链接至标题">¶</a></h3>
+<img alt="images/duokey2.png" src="images/duokey2.png" />
+</div>
+<div class="section" id="id38">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id38" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+<hr class="docutils" />
+<p>语音互动直播</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id39">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id39" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id40">
+<h2>3. 编译运行<a class="headerlink" href="#id40" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id41">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id41" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/liveios.png" src="images/liveios.png" />
+</div>
+<div class="section" id="id42">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id42" title="永久链接至标题">¶</a></h3>
+<img alt="images/livekey1.png" src="images/livekey1.png" />
+</div>
+<div class="section" id="id43">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id43" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id44">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id44" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id45">
+<h2>3. 编译运行<a class="headerlink" href="#id45" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id46">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id46" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/liveandroid.png" src="images/liveandroid.png" />
+</div>
+<div class="section" id="id47">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id47" title="永久链接至标题">¶</a></h3>
+<img alt="images/livekey2.png" src="images/livekey2.png" />
+</div>
+<div class="section" id="id48">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id48" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+<hr class="docutils" />
+<p>视频互动直播</p>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;iOS</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id49">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id49" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id50">
+<h2>3. 编译运行<a class="headerlink" href="#id50" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id51">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id51" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/liveios.png" src="images/liveios.png" />
+</div>
+<div class="section" id="id52">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id52" title="永久链接至标题">¶</a></h3>
+<img alt="images/livekey1.png" src="images/livekey1.png" />
+</div>
+<div class="section" id="id53">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id53" title="永久链接至标题">¶</a></h3>
+<p>连接 iOS 真机，编译运行 Demo 程序。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当前 RealmSwift 版本为使用 Swift 5.1 编译器编译的，开发者需要根据自己当前的 Xcode 版本下载对应的 RealmSwift 库进行替换。</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">下载--&gt;运行</span> <span class="pre">Demo</span> <span class="pre">源码--&gt;Android</span> <span class="pre">部分</span></code></p>
+</div>
+</div>
+<div class="section" id="id54">
+<h2>2. Demo 源码下载<a class="headerlink" href="#id54" title="永久链接至标题">¶</a></h2>
+<p>请点击这里（替换新链接） 进行 Demo 源码下载。</p>
+</div>
+<div class="section" id="id55">
+<h2>3. 编译运行<a class="headerlink" href="#id55" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id56">
+<h3>3.1 解压下载的 Demo 源码压缩包，并打开工程<a class="headerlink" href="#id56" title="永久链接至标题">¶</a></h3>
+<p>解压后的目录如下：</p>
+<img alt="images/liveandroid.png" src="images/liveandroid.png" />
+</div>
+<div class="section" id="id57">
+<h3>3.2 设置自己的 AppKey<a class="headerlink" href="#id57" title="永久链接至标题">¶</a></h3>
+<img alt="images/livekey2.png" src="images/livekey2.png" />
+</div>
+<div class="section" id="id58">
+<h3>3.3 运行 Demo<a class="headerlink" href="#id58" title="永久链接至标题">¶</a></h3>
+<p>连接安卓真机，编译运行 Demo 程序。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

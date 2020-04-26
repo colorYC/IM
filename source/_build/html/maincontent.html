@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>集成开发主要内容 &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="原理及流程" href="workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">原理及流程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">集成开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">前提条件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#appkey">注册开发者账号，获取AppKey</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk">SDK 下载</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">SDK 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">引入 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">SDK 初始化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">实现回调代理</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">账号管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">注册</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">登录</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">修改昵称</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">一对一会话集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">一对一会话管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">拨打音视频电话</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">音视频电话支持的功能</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">群聊集成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">群组管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">群聊会话管理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">消息管理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>集成开发主要内容</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/maincontent.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>集成开发主要内容<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>前提条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="appkey">
+<h3>注册开发者账号，获取AppKey<a class="headerlink" href="#appkey" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="sdk">
+<h3>SDK 下载<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>SDK 配置<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id4">
+<h3>引入 SDK<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id5">
+<h3>SDK 初始化<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p><em>JCCloudManager.h</em></p>
+</div>
+<div class="section" id="id6">
+<h3>实现回调代理<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>账号管理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>注册<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>登录<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>修改昵称<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>一对一会话集成<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>IM 消息主要涉及以下几个的类</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>JCCloudManager</p></td>
+<td><p>主要用于初始化、管理与cloud相关的所有回调和会话管理</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCCloudDatabase</p></td>
+<td><p>会话信息的数据库操作（如打开/关闭数据库、获取会话相关的信息、查询、搜索、保存会话信息以及会话的管理等）</p></td>
+</tr>
+<tr class="row-even"><td><p>JCMessageWrapper</p></td>
+<td><p>主要用于消息管理，包括发送消息，重发、转发、回复、消息已读、撤回、拉取消息、获取会话列表等</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCGroupWrapper</p></td>
+<td><p>主要用于群组管理，例如创建群、解散群等操作</p></td>
+</tr>
+<tr class="row-even"><td><p>JCMessageFetchManager</p></td>
+<td><p>主要用于会话同步</p></td>
+</tr>
+<tr class="row-odd"><td><p>JCOperationCacheDeal</p></td>
+<td><p>主要用于返回操作的结果</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id12">
+<h3>一对一会话管理<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>JCCloudDatabase.h</p>
+<p><em>创建会话</em></p>
+<p><em>删除会话</em></p>
+<p><em>更新会话</em></p>
+<p><em>查询会话</em></p>
+<p><em>会话设置</em></p>
+<hr class="docutils" />
+<p>JCMessageWrapper.h</p>
+<p><em>支持的消息类型：文字、文件、图片、表情、位置、语音消息、小视频</em></p>
+<p><em>消息发送</em></p>
+<p><em>消息接收</em></p>
+<p><em>历史消息获取</em></p>
+<p><em>消息回执</em></p>
+<p><em>消息撤回</em></p>
+<p><em>消息转发</em></p>
+<p><em>消息删除</em></p>
+<p><em>消息搜索</em></p>
+<p><em>消息插入</em></p>
+<p><em>消息同步</em></p>
+</div>
+<div class="section" id="id13">
+<h3>拨打音视频电话<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id14">
+<h3>音视频电话支持的功能<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id15">
+<h2>群聊集成<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id16">
+<h3>群组管理<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p><em>JCCloudManager.h</em></p>
+<p>JCGroupWrapper.h文件里提供的功能（接口）</p>
+<p><em>创建群组</em></p>
+<p><em>解散群组</em></p>
+<p><em>加入群组</em></p>
+<p><em>退出群组</em></p>
+<p><em>群组成员查询</em></p>
+<p><em>刷新群组信息</em></p>
+<p><em>同步用户群组</em></p>
+<p><em>增删群成员</em></p>
+<p><em>修改群名称</em></p>
+<p><em>设置群昵称</em></p>
+<p><em>设置群头像</em></p>
+<p><em>群公告设置</em></p>
+</div>
+<div class="section" id="id17">
+<h3>群聊会话管理<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>JCCloudDatabase.h</p>
+<p><em>获取全部会话</em></p>
+<p><em>删除全部会话</em></p>
+<p><em>会话未读数</em></p>
+<p><em>会话免打扰</em></p>
+<p><em>会话置顶</em></p>
+<p><em>添加成员</em></p>
+</div>
+<div class="section" id="id18">
+<h3>消息管理<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>JCMessageWrapper.h</p>
+<p><em>支持的消息类型：文字、文件、图片、表情、位置、语音消息、小视频</em></p>
+<p><em>消息发送</em></p>
+<p><em>消息接收</em></p>
+<p><em>历史消息获取</em></p>
+<p><em>消息回执</em></p>
+<p><em>消息撤回</em></p>
+<p><em>消息转发</em></p>
+<p><em>消息删除</em></p>
+<p><em>消息搜索</em></p>
+<p><em>消息同步</em></p>
+<p><em>发送&#64;消息</em>
+JCMessageFetchManager.h</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="workflow.html" class="btn btn-neutral float-left" title="原理及流程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

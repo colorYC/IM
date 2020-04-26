@@ -1,0 +1,907 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>群组管理 &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="ServerUid 介绍" href="../serveruid.html" />
+    <link rel="prev" title="一对一会话集成" href="groupchat_android.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">原理及流程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">会话集成</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html">一对一聊天</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html">群聊</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">多对多补充内容</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">创建群组</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">创建群</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">删除群组</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">解散群</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">更新群组</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">添加人员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">踢掉人员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">设置普通成员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">设置管理员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">设置群主</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">离开</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">修改自己的群昵称</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">设置群自定义属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">群备注更新</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">更改群名称</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">上传群头像</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">拉取群信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">拉取服务器更新</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">查询群组</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">查询群</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../serveruid.html">ServerUid</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">集成开发</a> &raquo;</li>
+        
+      <li>群组管理</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/IM/groupchaiadd.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>群组管理<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>创建群组<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3>创建群<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">createGroup</span><span class="p">(</span><span class="n">members</span><span class="p">,</span> <span class="n">groupName</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">customProperties</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>members</p></td>
+<td><p>&#64;NonNull List&lt;JCGroupMember&gt;</p></td>
+<td><p>是</p></td>
+<td><p>成员列表，memberType 和 displayname 需要赋值</p></td>
+</tr>
+<tr class="row-odd"><td><p>groupName</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群名字</p></td>
+</tr>
+<tr class="row-even"><td><p>type</p></td>
+<td><p>&#64;JCGroup.GroupType int</p></td>
+<td><p>是</p></td>
+<td><p>群类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>customProperties</p></td>
+<td><p>&#64;NonNull Map&lt;String, Object&gt;</p></td>
+<td><p>是</p></td>
+<td><p>自定义属性</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>删除群组<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id5">
+<h3>解散群<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>更新群组<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id7">
+<h3>添加人员<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>在一个群组中添加人员的方法。</p>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">addMembers</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">members</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>members</p></td>
+<td><p>&#64;NonNull List&lt;JCGroupMember&gt;</p></td>
+<td><p>是</p></td>
+<td><p>成员列表，uid 和 displayname 需要赋值</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id8">
+<h3>踢掉人员<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">kickMembers</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">memberServerUids</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>memberServerUids</p></td>
+<td><p>&#64;NonNull List&lt;String&gt;</p></td>
+<td><p>是</p></td>
+<td><p>成员id列表</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id9">
+<h3>设置普通成员<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>设置普通成员，只有当前群主可以操作。</p>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">modifyToMember</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">memberServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>memberServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>成员id</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id10">
+<h3>设置管理员<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">modifyToManager</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">memberServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>memberServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>成员id</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id11">
+<h3>设置群主<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>将群主转让给其他成员，只有当前群主可以操作。</p>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">modifyToOwner</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">memberServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>memberServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>成员id</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id12">
+<h3>离开<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<p>离开群组，群主必须转移群主后才可以离开群组。</p>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">leave</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id13">
+<h3>修改自己的群昵称<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">changeDisplayName</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">displayName</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>displayName</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>昵称</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id14">
+<h3>设置群自定义属性<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>用于发布公告等。</p>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">setGroupCustomProperties</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">customProperties</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>customProperties</p></td>
+<td><p>Map&lt;String, Object&gt;</p></td>
+<td><p>否</p></td>
+<td><p>属性集</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id15">
+<h3>群备注更新<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">updateComment</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">nickName</span><span class="p">,</span> <span class="n">tagMap</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>nickName</p></td>
+<td><p>String</p></td>
+<td><p>否</p></td>
+<td><p>群备注名 null代表不改变该值, “”代表置空</p></td>
+</tr>
+<tr class="row-even"><td><p>tagMap</p></td>
+<td><p>Map&lt;String, Object&gt;</p></td>
+<td><p>否</p></td>
+<td><p>标签Map null代表不改变该值，内部会将该 Map 转为 json</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id16">
+<h3>更改群名称<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">changeGroupName</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">groupName</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>groupName</p></td>
+<td><p>String</p></td>
+<td><p>否</p></td>
+<td><p>群名字</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id17">
+<h3>上传群头像<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">updateGroupIcon</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>path</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>否</p></td>
+<td><p>头像文件路径</p></td>
+</tr>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id18">
+<h3>拉取群信息<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">refreshGroupInfo</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">,</span> <span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+<tr class="row-odd"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id19">
+<h3>拉取服务器更新<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCGroupWrapper</span><span class="o">.</span><span class="n">refreshGroups</span><span class="p">(</span><span class="n">block</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>block</p></td>
+<td><p>GroupOperationBlock</p></td>
+<td><p>是</p></td>
+<td><p>结果函数</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>查询群组<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id21">
+<h3>查询群<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>调用方法</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">JCGroupMemberData</span><span class="o">&gt;</span> <span class="n">groupMemberDataList</span> <span class="o">=</span> <span class="n">JCCloudDatabase</span><span class="o">.</span><span class="n">getInstance</span><span class="p">()</span><span class="o">.</span><span class="n">queryGroupMembers</span><span class="p">(</span><span class="n">groupServerUid</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>必填</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupServerUid</p></td>
+<td><p>&#64;NonNull String</p></td>
+<td><p>是</p></td>
+<td><p>群组的服务器会话id</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回结果</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>返回类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>groupMemberDataList</p></td>
+<td><p>List&lt;JCGroupMemberData&gt;</p></td>
+<td><p>群组成员信息列表</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../serveruid.html" class="btn btn-neutral float-right" title="ServerUid 介绍" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="groupchat_android.html" class="btn btn-neutral float-left" title="一对一会话集成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

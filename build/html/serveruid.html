@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ServerUid 介绍 &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="群组管理" href="IM/groupchaiadd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">原理及流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IM/index.html">会话集成</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ServerUid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">ServerUid 的获取</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cloud-serveruid">根据 cloud 账号查询用户的serveruid</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>ServerUid 介绍</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/serveruid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="serveruid">
+<h1>ServerUid 介绍<a class="headerlink" href="#serveruid" title="永久链接至标题">¶</a></h1>
+<p>UserId 即登录用户名，是使用 JCClient 的 login 方法登录时传入的 userId 参数。例如使用“小李”为账号进行登录时，userId 就是“小李”。</p>
+<p>ServerUid 是菊风云平台的一个标识，分为 用户 ServerUid、群组 ServerUid。</p>
+<ul class="simple">
+<li><p>用户 ServerUid</p></li>
+</ul>
+<p>用户 ServerUid 是菊风云平台为每个用户分配的唯一标识，创建用户时由服务器生成。例如 userId 为 “小李”，他对应的 serverUid 是“10032-22”。</p>
+<ul class="simple">
+<li><p>群组 ServerUid</p></li>
+</ul>
+<p>群组 ServerUid 是菊风云平台为每个群组分配的唯一标识，创建群时由服务器生成。</p>
+<p>会话使用 ServerUid 进行唯一标识，一对一会话使用对端用户的 ServerUid 作为会话的 ServerUid，群聊会话使用群的 ServerUid 作为会话的 ServerUid。</p>
+<div class="section" id="id1">
+<h2>ServerUid 的获取<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<div class="section" id="cloud-serveruid">
+<h3>根据 cloud 账号查询用户的serveruid<a class="headerlink" href="#cloud-serveruid" title="永久链接至标题">¶</a></h3>
+<p>调用 JCAccount 类里的 queryServerUid 方法查询用户的 ServerUid</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// 查询 serverUid</span>
+<span class="n">JCCloudManager</span><span class="p">.</span><span class="na">shared</span><span class="p">.</span><span class="na">account</span><span class="p">.</span><span class="na">queryServerUid</span><span class="p">(</span><span class="n">userIdList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>输入参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>userIdArray</p></td>
+<td><p>List&lt;String&gt;</p></td>
+<td><p>查询的账号数组</p></td>
+</tr>
+</tbody>
+</table>
+<p>返回参数</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>int</p></td>
+<td><p>返回操作id</p></td>
+</tr>
+</tbody>
+</table>
+<p>查询结果通过 onQueryServerUidResult 回调上报</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">//查询账号 serverUid 结果回调</span>
+<span class="kt">void</span> <span class="nf">onQueryServerUidResult</span><span class="p">(</span><span class="n">operationId</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">resultMap</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>参数介绍</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"><p>类型</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>operationId</p></td>
+<td><p>int</p></td>
+<td><p>操作ID, 由queryServerUid接口返回</p></td>
+</tr>
+<tr class="row-odd"><td><p>result</p></td>
+<td><p>boolean</p></td>
+<td><p>查询是否成功, 成功但不一定所有查询 userId 都有 serverUid</p></td>
+</tr>
+<tr class="row-even"><td><p>resultMap</p></td>
+<td><p>Map&lt;String, String&gt;</p></td>
+<td><p>查询结果</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="IM/groupchaiadd.html" class="btn btn-neutral float-left" title="群组管理" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

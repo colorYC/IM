@@ -1,0 +1,492 @@
+.. _一对一信令通话-Android:
+
+一对一会话集成
+============================
+
+前提条件
+----------------------------
+
+- Android SDK API 等级 16 或以上
+
+- 支持 Android 4.1 或以上版本的移动设备
+
+- 有效的菊风开发者账号（`免费注册 <http://developer.juphoon.com/signup>`_ ）
+
+获取 AppKey
+----------------------------
+
+AppKey 是应用在 菊风云平台 中的唯一标识。需要在 SDK 初始化的时候使用，AppKey 获取请参考 //todo:ref:`创建应用 <创建应用>` 。
+
+下载 SDK
+----------------------------
+
+点击 `Android SDK <//todo>`_ 进行下载。
+
+
+导入 SDK
+----------------------------
+
+//todo 修改内容
+
+1. 下载 SDK，拷贝 libs 文件夹内的 armeabi-v7a、X86、mtc.jar 、JCSDK.jar 和 zmf.jar 到您工程目录中的 libs 目录下，并打开工程，如下图所示:
+
+.. image:: images/android_sdklist.png
+
+.. image:: images/quickstart_android1.png
+
+2. 为能连接到我们的 so 库，在您工程 build.gradle 文件中确保增加以下配置，如图:
+
+.. image:: images/set_sdk_android2.png
+
+3. 修改您工程中 Application 配置文件 AndroidManifest.xml，**请确保已经加入以下特性和权限信息**。具体信息可以参考 :ref:`Android 权限说明<Android 权限说明>` 。
+::
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+.. note::
+
+    您在 AndroidManifest 中进行权限配置时，请确保您能够获得打开摄像头、音视频录制等相关权限。
+
+4. 配置完成后编译运行，如果没有报错，恭喜您，您已经成功配置 SDK，可以进行 SDK 初始化了。
+
+.. note:: SDK 不支持模拟器运行，请使用真机。
+
+引用 SDK
+----------------------------
+
+在文件头部引入导入（import）需要的包和类
+例如::
+
+  import com.juphoon.cloud.wrapper.JCCloudManager;
+
+初始化
+----------------------------
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+
+  JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+账号管理
+---------------------------
+
+登录介绍
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+登录
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+登出
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+设置昵称
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+会话管理
+---------------------------
+
+创建会话
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+**调用方法**
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+删除会话
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+删除单一会话
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+删除所有会话
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+更新会话
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+更新会话信息（公告）
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+更新会话名字
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+查询会话
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+查询单个会话
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+查询多个会话
+:::::::::::::::::::::::::::
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功
+
+会话设置
+>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+    初始化以进行底层调用
+
+**调用方法**
+
+::
+    JCCloudManager.getInstance().initialize(context, appKey)
+
+**输入参数**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 参数
+     - 类型
+     - 必填
+     - 说明
+   * - context
+     - Context
+     - 是
+     - 应用上下文
+   * - appKey
+     - string
+     - 是
+     - 菊风云平台 中的唯一标识
+
+**返回结果**
+
+.. list-table::
+
+   :header-rows: 1
+
+   * - 返回值
+     - 返回类型
+     - 说明
+   * - mInit
+     - Boolean
+     - 判断是否初始化成功

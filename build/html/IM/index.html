@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>集成开发 &mdash; 菊风云通讯平台 1.10 文档</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="一对一会话集成" href="1to1chat_android.html" />
+    <link rel="prev" title="原理及流程" href="../workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> 菊风云通讯平台
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">原理及流程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">会话集成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html">一对一聊天</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html">群聊</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html">多对多补充内容</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../serveruid.html">ServerUid</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">菊风云通讯平台</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>集成开发</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/IM/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>集成开发<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1to1chat_android.html">一对一聊天</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#id2">前提条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#appkey">获取 AppKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#sdk">配置 SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id4">下载 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id5">导入 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id6">引入 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id7">初始化 SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#id8">账号管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id9">登录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id10">登录参数设置（可选）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id11">发起登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id12">登录状态改变回调</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id13">登录结果回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id14">登出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id15">发起登出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id16">登出回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id17">设置昵称</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#id18">会话管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id19">相关内容介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id20">打开数据库</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id21">关闭数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id22">创建会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id23">发起会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id24">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id25">删除会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id26">删除单一会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id27">删除所有会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id28">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id29">更新会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id30">更新会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id33">更新会话名字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id34">更新会话图标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id35">保存草稿</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id36">清除草稿</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id37">设置会话所有消息本地已读</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id38">设置会话置顶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id39">设置会话免打扰</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id40">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id41">查询会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id42">查询单个会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id43">查询所有会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#idid">根据服务器会话ID查询本地会话ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id44">根据服务器消息ID查询本地会话ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id45">获得所有的未读消息数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="1to1chat_android.html#id46">消息管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id47">相关内容介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id48">发送/转发/回复消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id49">发送文本消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id50">发送文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id51">转发消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id52">合并转发消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id53">回复消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id54">重发消息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id55">删除消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id56">撤回消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id57">删除单条消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id58">删除多条消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id59">删除会话所有消息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id60">更新消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id61">更新消息状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id62">更新消息文件路径</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id63">标为已读</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="1to1chat_android.html#id64">接收/查询消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id65">接收消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id66">下载文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id67">搜索消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="1to1chat_android.html#id68">搜索包含关键词的会话信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="groupchat_android.html">群聊</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#id2">前提条件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#appkey">获取 AppKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#sdk">配置 SDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id4">下载 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id5">导入 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id6">引入 SDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id7">初始化 SDK</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#id8">账号管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id9">登录</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id10">登录参数设置（可选）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id11">发起登录</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id12">登录状态改变回调</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id13">登录结果回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id14">登出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id15">发起登出</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id16">登出回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id17">设置昵称</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#id18">会话管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id19">相关内容介绍</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id20">打开数据库</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id21">关闭数据库</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id22">创建会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id23">发起会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id24">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id25">删除会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id26">删除单一会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id27">删除所有会话</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id28">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id29">更新会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id30">更新会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id33">更新会话名字</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id34">更新会话图标</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id35">保存草稿</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id36">清除草稿</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id37">设置会话所有消息本地已读</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id38">设置会话置顶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id39">设置会话免打扰</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id40">相关回调</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id41">查询会话</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id42">查询单个会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id43">查询所有会话信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#idid">根据服务器会话ID查询本地会话ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id44">根据服务器消息ID查询本地会话ID</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id45">获得所有的未读消息数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchat_android.html#id46">消息管理</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id47">相关内容介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id48">发送/转发/回复消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id49">发送文本消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id50">发送文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id51">转发消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id52">合并转发消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id53">回复消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id54">重发消息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id55">删除消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id56">撤回消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id57">删除单条消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id58">删除多条消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id59">删除会话所有消息</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id60">更新消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id61">更新消息状态</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id62">更新消息文件路径</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id63">标为已读</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="groupchat_android.html#id64">接收/查询消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id65">接收消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id66">下载文件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id67">搜索消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="groupchat_android.html#id68">搜索包含关键词的会话信息</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="groupchaiadd.html">多对多补充内容</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html#id2">创建群组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id3">创建群</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html#id4">删除群组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id5">解散群</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html#id6">更新群组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id7">添加人员</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id8">踢掉人员</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id9">设置普通成员</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id10">设置管理员</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id11">设置群主</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id12">离开</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id13">修改自己的群昵称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id14">设置群自定义属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id15">群备注更新</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id16">更改群名称</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id17">上传群头像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id18">拉取群信息</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id19">拉取服务器更新</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="groupchaiadd.html#id20">查询群组</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupchaiadd.html#id21">查询群</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="1to1chat_android.html" class="btn btn-neutral float-right" title="一对一会话集成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../workflow.html" class="btn btn-neutral float-left" title="原理及流程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="zh-CN" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh-CN" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>一对一会话集成 &mdash; 菊风云通讯平台 1.10 文档</title>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+
+
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/custom.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js"></script>
+        <script src="../_static/translations.js"></script>
+
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="../index.html" class="icon icon-home"> 菊风云通讯平台
+
+
+
+          </a>
+
+
+
+
+              <div class="version">
+                1.10
+              </div>
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow.html">原理及流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../maincontent.html">集成开发</a></li>
+</ul>
+
+
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">菊风云通讯平台</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+
+      <li>一对一会话集成</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="../_sources/IM/android_1to1_integration.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="android">
+<span id="id1"></span><h1>一对一会话集成<a class="headerlink" href="#android" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2>前提条件<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>Android SDK API 等级 16 或以上</p></li>
+<li><p>支持 Android 4.1 或以上版本的移动设备</p></li>
+<li><p>有效的菊风开发者账号（<a class="reference external" href="http://developer.juphoon.com/signup">免费注册</a> ）</p></li>
+</ul>
+</div>
+<div class="section" id="appkey">
+<h2>获取 AppKey<a class="headerlink" href="#appkey" title="永久链接至标题">¶</a></h2>
+<p>AppKey 是应用在 菊风云平台 中的唯一标识。需要在 SDK 初始化的时候使用，AppKey 获取请参考 //todo:ref:<cite>创建应用 &lt;创建应用&gt;</cite> 。</p>
+</div>
+<div class="section" id="sdk">
+<h2>下载 SDK<a class="headerlink" href="#sdk" title="永久链接至标题">¶</a></h2>
+<p>点击 <a class="reference external" href="//todo">Android SDK</a> 进行下载。</p>
+</div>
+<div class="section" id="id4">
+<h2>导入 SDK<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>//todo 修改内容</p>
+<ol class="arabic simple">
+<li><p>下载 SDK，拷贝 libs 文件夹内的 armeabi-v7a、X86、mtc.jar 、JCSDK.jar 和 zmf.jar 到您工程目录中的 libs 目录下，并打开工程，如下图所示:</p></li>
+</ol>
+<img alt="IM\images/android_sdklist.png" src="IM\images/android_sdklist.png" />
+<img alt="IM\images/quickstart_android1.png" src="IM\images/quickstart_android1.png" />
+<ol class="arabic simple" start="2">
+<li><p>为能连接到我们的 so 库，在您工程 build.gradle 文件中确保增加以下配置，如图:</p></li>
+</ol>
+<img alt="IM\images/set_sdk_android2.png" src="IM\images/set_sdk_android2.png" />
+<p>3. 修改您工程中 Application 配置文件 AndroidManifest.xml，<strong>请确保已经加入以下特性和权限信息</strong>。具体信息可以参考 <span class="xref std std-ref">Android 权限说明</span> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.hardware.camera&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">feature</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.hardware.camera.autofocus&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.INTERNET&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.ACCESS_WIFI_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.READ_PHONE_STATE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.WAKE_LOCK&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.CAMERA&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.RECORD_AUDIO&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.MODIFY_AUDIO_SETTINGS&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.VIBRATE&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.BLUETOOTH&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="n">android</span><span class="p">:</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;android.permission.SYSTEM_ALERT_WINDOW&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>您在 AndroidManifest 中进行权限配置时，请确保您能够获得打开摄像头、音视频录制等相关权限。</p>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>配置完成后编译运行，如果没有报错，恭喜您，您已经成功配置 SDK，可以进行 SDK 初始化了。</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>SDK 不支持模拟器运行，请使用真机。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>引用 SDK<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>在文件头部引入导入（import）需要的包和类
+例如:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">com.juphoon.cloud.wrapper.JCCloudManager</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>初始化<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">JCCloudManager</span><span class="o">.</span><span class="n">getInstance</span><span class="p">()</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">appKey</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+<div class="section" id="id7">
+<h2>账号管理<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id8">
+<h3>登录介绍<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id9">
+<h3>登录<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id10">
+<h3>登出<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+</div>
+<div class="section" id="id11">
+<h3>设置昵称<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>会话管理<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id13">
+<h3>创建会话<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p><strong>介绍</strong></p>
+<p><strong>调用方法</strong></p>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+<div class="section" id="id14">
+<h3>删除会话<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id15">
+<h4>删除单一会话<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+<div class="section" id="id16">
+<h4>删除所有会话<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>更新会话<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id18">
+<h4>更新会话信息（公告）<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+<div class="section" id="id19">
+<h4>更新会话名字<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>查询会话<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id21">
+<h4>查询单个会话<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+<div class="section" id="id22">
+<h4>查询多个会话<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h4>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+</div>
+<div class="section" id="id23">
+<h3>会话设置<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p><strong>介绍</strong></p>
+<blockquote>
+<div><p>初始化以进行底层调用</p>
+</div></blockquote>
+<p><strong>调用方法</strong></p>
+<dl class="simple">
+<dt>::</dt><dd><p>JCCloudManager.getInstance().initialize(context, appKey)</p>
+</dd>
+</dl>
+<p><strong>输入参数</strong></p>
+<p><strong>返回结果</strong></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, 菊风
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>
